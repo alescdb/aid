@@ -1,0 +1,6 @@
+/.idea
+/.dart_tool
+/bin/aid.exe
+/release
+/pubspec.lock
+
