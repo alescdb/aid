@@ -27,6 +27,11 @@ Setup file (`~/.config/aid/setup.json`):
 make install
 ```
 
+Arch Linux :
+```bash
+yay -S aid-git
+```
+
 # Usage
 
 ```bash
@@ -35,7 +40,8 @@ aid <prompt>
 
 # TODO
 
-- Chat History
-- Configuration file command line parameter
-- Windows & macOS support (if asked) ?!
-- Arch AUR
+- [X] ~~Chat History~~ (partially implemented `~/.config/aid/history.json`)
+- [ ] Command line parameter (other than prompt)
+- [ ] Windows & macOS support (if asked) ?!
+- [ ] Gentoo ebuild
+- [X] ~~Arch AUR~~ https://aur.archlinux.org/packages/aid-git
