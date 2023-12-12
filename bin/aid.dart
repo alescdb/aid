@@ -6,8 +6,8 @@ import 'package:aid/settings.dart';
 import 'package:aid/utils.dart';
 
 void main(List<String> args) async {
-  History history = History();
   Settings settings = Settings();
+  History history = History(max: settings.history);
 
   if (args.length != 1) {
     stderr.writeln("Usage: aid <prompt>");
@@ -25,5 +25,5 @@ void main(List<String> args) async {
   history.messages.add(Message(role: Role.assistant, content: response));
   history.save();
 
-  print(settings.markdown ? SimpleMarkdown.parse(response) : response);
+  print(settings.markdown ? SimpleMarkdown().parseMarkdown(response) : response);
 }
