@@ -48,13 +48,10 @@ class SimpleMarkdown {
   }
 
   String _printElement(Node node) {
-    List<String> elements = [];
     if (node is Element) {
-      elements.add(_parseElement(node));
-    } else {
-      elements.add(node.textContent);
+      return (_parseElement(node));
     }
-    return elements.join(' ');
+    return (node.textContent);
   }
 
   String parseMarkdown(String markdownData) {
