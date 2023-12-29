@@ -41,7 +41,7 @@ aid <prompt>
 # TODO
 
 - [X] ~~Chat History~~ (partially implemented `~/.config/aid/history.json`)
-- [ ] Command line parameter (other than prompt)
+- [X] ~~Command line parameter (other than prompt)~~
 - [ ] Windows & macOS support (if asked) ?!
 - [ ] Gentoo ebuild
 - [X] ~~Arch AUR~~ https://aur.archlinux.org/packages/aid-git
