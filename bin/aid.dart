@@ -35,10 +35,10 @@ void main(List<String> args) async {
   }
 
   String prompt = results.rest.join(' ').trim();
-  Log.d("Markdown : '${results['markdown']}'");
-  Log.d("Verbose  : '${results['verbose']}'");
-  Log.d("Clear    : '${results['clear']}'");
-  Log.d("Prompt   : '${prompt}'");
+  Log.d("Markdown : ${results['markdown']}");
+  Log.d("Verbose  : ${results['verbose']}");
+  Log.d("Clear    : ${results['clear']}");
+  Log.d("Prompt   : '$prompt'");
 
   if (isNullOrEmpty(settings.apikey)) {
     Log.e("Please, set you OpenAI API key in ${settings.getFilePath()}");
