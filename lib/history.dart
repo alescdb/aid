@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:path/path.dart' as path;
 
 import 'chat.dart';
@@ -37,5 +38,9 @@ class History {
       config.createSync(recursive: true);
     }
     return (path.join(config.path, 'history.json'));
+  }
+
+  void clear() {
+    messages.clear();
   }
 }
