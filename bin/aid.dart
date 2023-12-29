@@ -9,9 +9,9 @@ import 'package:aid/utils.dart';
 import 'package:args/args.dart';
 
 void main(List<String> args) async {
-  History history = History();
   Settings settings = Settings();
   ArgParser parser = ArgParser();
+  History history = History(max: settings.history);
 
   parser.addFlag('markdown', abbr: 'm', negatable: true, help: 'Enable/Disable markdown', defaultsTo: settings.markdown);
   parser.addFlag('clear', abbr: 'c', help: 'Clear history', defaultsTo: false);
@@ -57,5 +57,5 @@ void main(List<String> args) async {
   history.messages.add(Message(role: Role.assistant, content: response));
   history.save();
 
-  print(results['markdown'] ? SimpleMarkdown.parse(response) : response);
+  print(results['markdown'] ? SimpleMarkdown().parseMarkdown(response) : response);
 }

@@ -6,12 +6,15 @@ class Settings {
   String? apikey;
   String? model = "gpt-4";
   String? system;
+  int history = 10;
   bool markdown = true;
 
   Settings() {
     var file = File(getFilePath());
     if (file.existsSync()) {
-      fromJson(jsonDecode(file.readAsStringSync()));
+      if (fromJson(jsonDecode(file.readAsStringSync()))) {
+        file.writeAsStringSync(toJson(), mode: FileMode.write);
+      }
     } else {
       file.writeAsStringSync(toJson(), mode: FileMode.write);
     }
@@ -28,11 +31,18 @@ class Settings {
     return (path.join(config.path, 'setup.json'));
   }
 
-  void fromJson(Map<String, dynamic> json) {
+  bool fromJson(Map<String, dynamic> json) {
     apikey = json['apikey'];
     model = json['model'] ?? "gpt-4";
     system = json['system'];
     markdown = json['markdown'] ?? true;
+    history = json['history'] ?? 10;
+
+    // need to be saved for new fields.
+    if (json['markdown'] == null || json['history'] == null) {
+      return(true);
+    }
+    return(false);
   }
 
   String toJson() {
@@ -41,6 +51,7 @@ class Settings {
       "model": model,
       "system": system,
       "markdown": markdown,
+      "history": history,
     });
   }
 }
