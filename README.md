@@ -1,3 +1,9 @@
+# DEPRECATED
+
+See [air](https://github.com/alescdb/air)
+
+___
+
 # AID (ChatGPT from Command Line)
 
 A simple command-line application written in [Dart](https://dart.dev/) to call ChatGPT from command line (linux only for now) with simple markdown to ANSI output.
